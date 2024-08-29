@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sueldo</title>
+</head>
+<body>
+    <h1>Saber tu sueldo segun las horas trabajadas</h1>
+    <h2>Dawny Chalas Telemaco</h2>
+
+    <script>
+        let horaPrecio = prompt("Cual es el precio de yus horas?");
+        horaPrecio = Number(horaPrecio);
+
+        let cantidadHoras = prompt("Cuantas horas trabajaste?");
+        cantidadHoras = Number(cantidadHoras);
+
+        let sueldo = cantidadHoras * horaPrecio;
+
+        alert("Tu salario de este sera de: " + sueldo + "$")
+    </script>
+</body>
+</html>

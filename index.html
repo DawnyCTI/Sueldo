@@ -3,22 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sueldo</title>
+    <title>Operaciones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .operation {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1
+            );
+        }
+        .operation label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .operation input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .operation button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .operation button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Saber tu sueldo segun las horas trabajadas</h1>
+    <h1>Operaciones Básicas</h1>
     <h2>Dawny Chalas Telemaco</h2>
 
+    <div class="operation">
+        <h3>1. Calcular Promedio de 3 Números</h3>
+        <label for="num1">Número 1:</label>
+        <input type="number" id="num1">
+        <label for="num2">Número 2:</label>
+        <input type="number" id="num2">
+        <label for="num3">Número 3:</label>
+        <input type="number" id="num3">
+        <button onclick="calcularPromedio()">Calcular Promedio</button>
+        <p id="resultadoPromedio"></p>
+    </div>
+
+    <div class="operation">
+        <h3>2. Verificar si un Número es Positivo o Negativo</h3>
+        <label for="numero">Número:</label>
+        <input type="number" id="numero">
+        <button onclick="verificarPositivoNegativo()">Verificar</button>
+        <p id="resultadoVerificacion"></p>
+    </div>
+
+    <div class="operation">
+        <h3>3. Calcular Sueldo según Horas Trabajadas</h3>
+        <label for="horaPrecio">Precio por Hora:</label>
+        <input type="number" id="horaPrecio">
+        <label for="cantidadHoras">Cantidad de Horas Trabajadas:</label>
+        <input type="number" id="cantidadHoras">
+        <button onclick="calcularSueldo()">Calcular Sueldo</button>
+        <p id="resultadoSueldo"></p>
+    </div>
+
     <script>
-        let horaPrecio = prompt("Cual es el precio de yus horas?");
-        horaPrecio = Number(horaPrecio);
+        function calcularPromedio() {
+            const num1 = Number(document.getElementById('num1').value);
+            const num2 = Number(document.getElementById('num2').value);
+            const num3 = Number(document.getElementById('num3').value);
+            const promedio = (num1 + num2 + num3) / 3;
+            document.getElementById('resultadoPromedio').innerText = "El promedio es: " + promedio;
+        }
 
-        let cantidadHoras = prompt("Cuantas horas trabajaste?");
-        cantidadHoras = Number(cantidadHoras);
+        function verificarPositivoNegativo() {
+            const numero = Number(document.getElementById('numero').value);
+            let resultado = "El número es cero.";
+            if (numero > 0) {
+                resultado = "El número es positivo.";
+            } else if (numero < 0) {
+                resultado = "El número es negativo.";
+            }
+            document.getElementById('resultadoVerificacion').innerText = resultado;
+        }
 
-        let sueldo = cantidadHoras * horaPrecio;
-
-        alert("Tu salario de este sera de: " + sueldo + "$")
+        function calcularSueldo() {
+            const horaPrecio = Number(document.getElementById('horaPrecio').value);
+            const cantidadHoras = Number(document.getElementById('cantidadHoras').value);
+            const sueldo = cantidadHoras * horaPrecio;
+            document.getElementById('resultadoSueldo').innerText = "Tu salario será de: " + sueldo + " $";
+        }
     </script>
 </body>
 </html>
